@@ -1,0 +1,26 @@
+{
+    "name": "codingmatters/zend-expressive-zend-component",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^7.0",
+        "roave/security-advisories": "dev-master",
+        "zendframework/zend-expressive-zendviewrenderer": "^1.1",
+        "zendframework/zend-expressive-zendrouter": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zend\\Component\\": "src/"
+        }
+    },
+    "extra": {
+        "zf": {
+            "config-provider": "Zend\\Component\\ConfigProvider"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ZendTest\\Component\\": "test/"
+        }
+    }
+}
