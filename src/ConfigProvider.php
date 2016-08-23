@@ -29,6 +29,7 @@ namespace Zend\Component;
 use Zend\Expressive\Router;
 use Zend\Expressive\Template;
 use Zend\Expressive\ZendView;
+use Zend\Expressive\Container;
 
 final class ConfigProvider
 {
@@ -61,7 +62,7 @@ final class ConfigProvider
             'factories'     => [
                 // Templating
                 Template\TemplateRendererInterface::class => ZendView\ZendViewRendererFactory::class,
-                \Zend\View\HelperPluginManager::class => ZendView\HelperPluginManagerFactory::class,
+                Zend\View\HelperPluginManager::class => ZendView\HelperPluginManagerFactory::class,
 
                 // Error Handler
                 'Zend\Expressive\FinalHandler' => Container\TemplatedErrorHandlerFactory::class
