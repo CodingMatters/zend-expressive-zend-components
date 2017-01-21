@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace Zend\Component;
 
+use Zend\ServiceManager\AbstractFactory\ConfigAbstractFactory;
 use Zend\View\HelperPluginManager;
 use Zend\Expressive\Router;
 use Zend\Expressive\Template;
@@ -31,6 +32,12 @@ final class ConfigProvider
     public function getServiceConfig() : array
     {
         return [
+            // This allows you to define services using a configuration map.
+            // Rather than having to create separate factories for each of your services.
+            // @see https://docs.zendframework.com/zend-servicemanager/config-abstract-factory/
+            'abstract_factories' => [
+                ConfigAbstractFactory::class,
+            ],
             // Use 'invokables' for constructor-less (do not require arguments ) services,
             'invokables'    => [
                 Router\RouterInterface::class => Router\ZendRouter::class,
