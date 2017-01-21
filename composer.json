@@ -2,28 +2,45 @@
     "name": "codingmatters/zend-expressive-zend-component",
     "type": "library",
     "license": "MIT",
-    "require": {
-        "php": "^7.0",
-        "roave/security-advisories": "dev-master",
-        "zendframework/zend-expressive-zendviewrenderer": "^1.1",
-        "zendframework/zend-expressive-zendrouter": "^1.2",
-	"zendframework/zend-servicemanager": "^3.0",
-        "zendframework/zend-stdlib": "^3.0",
-        "ocramius/proxy-manager": "^2.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Zend\\Component\\": "src/"
-        }
-    },
     "extra": {
         "zf": {
             "config-provider": "Zend\\Component\\ConfigProvider"
+        }
+    },    
+    "autoload": {
+        "psr-4": {
+            "Zend\\Component\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "ZendTest\\Component\\": "test/"
         }
+    },
+    "require": {
+        "php": "^7.1.0",
+        "roave/security-advisories": "dev-master",
+        "zendframework/zend-expressive-zendviewrenderer": "^1.2",
+        "zendframework/zend-expressive-zendrouter": "^2.0",
+        "zendframework/zend-servicemanager": "^3.2",
+        "ocramius/proxy-manager": "^2.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7",
+        "zendframework/zend-coding-standard": "^1.0",
+        "sebastian/phpcpd": "^2.0"
+    },
+    "scripts": {
+        "check": [
+            "@cs-check",
+            "@cpd",
+            "@test"
+        ],
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "cpd": "phpcpd --exclude=/vendor,/build --fuzzy src test",
+        "test": "phpunit --verbose --colors=always",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
+        "upload-coverage": "coveralls -v"
     }
 }
