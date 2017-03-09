@@ -48,9 +48,6 @@ final class ConfigProvider
                 // Templating
                 Template\TemplateRendererInterface::class   => ZendView\ZendViewRendererFactory::class,
                 HelperPluginManager::class                  => ZendView\HelperPluginManagerFactory::class,
-
-                // Error Handler
-                'Zend\Expressive\FinalHandler'              => Container\TemplatedErrorHandlerFactory::class
             ]
         ];
     }
